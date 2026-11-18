@@ -1,0 +1,19 @@
+# Restore Studio - Python packages (Python 3.11). PyTorch is installed separately by install.bat / install.sh /
+# the Colab notebook, with the build that matches the machine (NVIDIA CUDA / AMD ROCm / Intel XPU / Apple MPS / CPU).
+# basic-pitch is installed with --no-deps (it runs on ONNX Runtime; its TensorFlow dependency is not needed).
+# Exact versions of a known-good Windows setup: requirements.lock.txt
+numpy==1.26.4
+scipy==1.17.1
+soundfile==0.14.0
+librosa==0.11.0
+soxr==1.1.0
+pyloudnorm==0.1.1
+mido==1.3.3
+pretty_midi==0.2.11.post0
+PyYAML==6.0.3
+onnxruntime==1.31.0
+mir_eval==0.8.2
+resampy==0.4.2
+scikit-learn==1.9.1
+typing_extensions
+setuptools<81

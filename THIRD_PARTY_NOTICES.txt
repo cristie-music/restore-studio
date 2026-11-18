@@ -1,0 +1,170 @@
+RESTORE STUDIO - third party notices
+====================================
+
+--- from bass-maker
+Third-party notices
+===================
+
+Bass Maker includes or downloads the following third-party components.
+
+1. BS-RoFormer 4 stems FT - separation model weights (downloaded into models\ by setup.bat)
+   by SYH99999, https://huggingface.co/SYH99999/bs_roformer_4stems_ft
+   Files: bs_roformer_4stems_ft.pth, config_bs_roformer_4stems_ft.yaml (= config.yaml of the model page).
+   License stated on the model page: Apache-2.0 (checked 2026-10-31).
+   The model separates drums / bass / other / vocals; Bass Maker uses only its bass output.
+
+2. BS-RoFormer network code (app\roformer.py is a re-implementation for inference only)
+   - lucidrains "BS-RoFormer" (MIT) https://github.com/lucidrains/BS-RoFormer
+   - ZFTurbo "Music-Source-Separation-Training" (MIT) https://github.com/ZFTurbo/Music-Source-Separation-Training
+
+3. Spotify Basic Pitch 0.4.0 - note transcription model and inference code (installed into python\)
+   https://github.com/spotify/basic-pitch            License: Apache-2.0
+   The ICASSP 2022 model ("nmp.onnx") ships inside the basic-pitch package.
+
+4. Runtime downloaded by setup.bat (NOT part of the Bass Maker code)
+   - CPython 3.11 (python-build-standalone builds): Python Software Foundation License
+   - PyTorch: BSD-3-Clause (CUDA 12.6 build; bundles NVIDIA CUDA runtime libraries under NVIDIA's license)
+   - ONNX Runtime: MIT;  librosa: ISC;  NumPy, SciPy, scikit-learn: BSD-3-Clause
+   - python-soundfile: BSD-3-Clause (bundles libsndfile, LGPL-2.1);  PyYAML: MIT
+   - mido: MIT;  pretty_midi: MIT;  resampy: ISC;  mir_eval: MIT;  numba / llvmlite: BSD-2-Clause
+   basic-pitch declares TensorFlow as a dependency on Windows; setup.bat removes it again
+   (TensorFlow: Apache-2.0) because the model runs on ONNX Runtime.
+
+5. Code shared with Piano Maker / Guitar Splitter (notes.py, harmony.py, outputs.py): MIT, same authors.
+
+The full list of installed Python packages with versions is in requirements.lock.txt.
+
+--- from drum-maker
+Third-party notices
+===================
+
+Drum Maker includes or downloads the following third-party components.
+
+1. TFC-TDF v3 (MDX23C) network code - app/mdx23c.py
+   The network definition in app/mdx23c.py is adapted from:
+     - Music-Source-Separation-Training by Roman Solovyev (ZFTurbo)
+       https://github.com/ZFTurbo/Music-Source-Separation-Training
+     - python-audio-separator by karaokenerds
+       https://github.com/nomadkaraoke/python-audio-separator
+   Both are licensed under the MIT License (texts below).
+
+2. MDX23C DrumSep model weights (NOT included in this repository)
+   "MDX23C-DrumSep-aufr33-jarredou.ckpt" and "config_drumsep_mdx23c.yaml", by aufr33 and jarredou.
+   setup.bat downloads them from the python-audio-separator model-configs release:
+     https://github.com/nomadkaraoke/python-audio-separator/releases/tag/model-configs
+   The weights belong to their authors; check their terms before redistributing them.
+
+3. Runtime downloaded by setup.bat (NOT included in this repository)
+   - CPython 3.11 (python-build-standalone builds): Python Software Foundation License
+     https://github.com/astral-sh/python-build-standalone
+   - PyTorch: BSD-3-Clause, https://github.com/pytorch/pytorch
+   - NumPy, SciPy: BSD-3-Clause
+   - python-soundfile: BSD-3-Clause (bundles libsndfile, LGPL-2.1)
+   - PyYAML: MIT
+   - mido: MIT
+
+--------------------------------------------------------------------------------
+Music-Source-Separation-Training
+
+MIT License
+
+Copyright (c) 2024 Roman Solovyev (ZFTurbo)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--------------------------------------------------------------------------------
+python-audio-separator
+
+MIT License
+
+Copyright (c) 2023 karaokenerds
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+--- from guitar-splitter
+Third-party notices
+===================
+
+Guitar Splitter includes or downloads the following third-party components.
+
+1. Mel-Band RoFormer Guitar - guitar separation model weights (downloaded into models\ by setup.bat)
+   by becruily, https://huggingface.co/becruily/mel-band-roformer-guitar
+   Files: becruily_guitar.ckpt, config_guitar_becruily.yaml.
+   The model page does not state a license (checked 2026-10-30). The weights are NOT covered by the MIT
+   license of Guitar Splitter; ask the author before any commercial use or redistribution.
+
+2. Mel-Band RoFormer network code (app\roformer.py is a re-implementation for inference only)
+   - lucidrains "BS-RoFormer" (MIT) https://github.com/lucidrains/BS-RoFormer
+   - ZFTurbo "Music-Source-Separation-Training" (MIT) https://github.com/ZFTurbo/Music-Source-Separation-Training
+
+3. Spotify Basic Pitch 0.4.0 - note transcription model and inference code (installed into python\)
+   https://github.com/spotify/basic-pitch            License: Apache-2.0
+   The ICASSP 2022 model ("nmp.onnx") ships inside the basic-pitch package.
+
+4. Runtime downloaded by setup.bat (NOT part of the Guitar Splitter code)
+   - CPython 3.11 (python-build-standalone builds): Python Software Foundation License
+   - PyTorch: BSD-3-Clause (CUDA 12.6 build; bundles NVIDIA CUDA runtime libraries under NVIDIA's license)
+   - ONNX Runtime: MIT;  librosa: ISC;  NumPy, SciPy, scikit-learn: BSD-3-Clause
+   - python-soundfile: BSD-3-Clause (bundles libsndfile, LGPL-2.1);  PyYAML: MIT
+   - mido: MIT;  pretty_midi: MIT;  resampy: ISC;  mir_eval: MIT;  numba / llvmlite: BSD-2-Clause
+   basic-pitch declares TensorFlow as a dependency on Windows; setup.bat removes it again
+   (TensorFlow: Apache-2.0) because the model runs on ONNX Runtime.
+
+5. Code shared with Piano Maker (notes.py, harmony.py, outputs.py): MIT, same authors.
+
+The full list of installed Python packages with versions is in requirements.lock.txt.
+
+--- from piano-maker
+Third-party notices
+===================
+
+Piano Maker includes or downloads the following third-party components (all free and open source).
+
+1. Spotify Basic Pitch 0.4.0 - note transcription model and inference code (installed into python\ by setup.bat)
+   https://github.com/spotify/basic-pitch            License: Apache-2.0
+   The ICASSP 2022 model ("nmp.onnx") ships inside the basic-pitch package.
+
+2. Runtime downloaded by setup.bat (NOT part of the Piano Maker code)
+   - CPython 3.11 (python-build-standalone builds): Python Software Foundation License
+     https://github.com/astral-sh/python-build-standalone
+   - ONNX Runtime: MIT, https://github.com/microsoft/onnxruntime
+   - librosa: ISC, https://github.com/librosa/librosa
+   - NumPy, SciPy, scikit-learn: BSD-3-Clause
+   - python-soundfile: BSD-3-Clause (bundles libsndfile, LGPL-2.1)
+   - mido: MIT;  pretty_midi: MIT;  resampy: ISC;  mir_eval: MIT;  numba / llvmlite: BSD-2-Clause
+   basic-pitch declares TensorFlow as a dependency on Windows; setup.bat removes it again
+   (TensorFlow: Apache-2.0) because the model runs on ONNX Runtime.
+
+3. The full list of installed Python packages with versions is in requirements.lock.txt.
